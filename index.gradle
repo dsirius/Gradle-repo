@@ -5,4 +5,3 @@ apply from: 'https://raw.githubusercontent.com/dsirius/Gradle-repo/master/index-
 //apply from: 'https://raw.githubusercontent.com/dsirius/Gradle-repo/master//scripts/forge/version.gradle'
 apply from: 'https://raw.githubusercontent.com/dsirius/Gradle-repo/master//scripts/forge/forgeV.gradle'
 apply from: 'https://raw.githubusercontent.com/dsirius/Gradle-repo/master//scripts/forge/processResources.gradle'
-//apply from: 'https://raw.githubusercontent.com/dsirius/Gradle-repo/master//scripts/forge/newCurse.gradle'
