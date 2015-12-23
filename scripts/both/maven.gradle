@@ -37,6 +37,8 @@ publishing {
                 url "file:" + projectDir.path + "/build/maven"
             elseif (project.hasProperty("nigix") && project.getProperty("nigix") == "true")
                 url "file:///usr/share/nginx/html/maven"
+            else
+                url "file:///var/www/maven"
         }
     }
 }
