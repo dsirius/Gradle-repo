@@ -1,0 +1,94 @@
+buildscript {
+    repositories {
+        mavenCentral()
+        maven {
+            name = "sonatype"
+            url = "https://oss.sonatype.org/content/repositories/snapshots/"
+        }
+    }
+    dependencies {
+        classpath 'org.ajoberstar:gradle-git:1.3.2'
+        classpath 'org.ajoberstar:grgit:1.4.1'
+    }
+}
+
+if (!project.hasProperty("bambooshortPlanName"))
+    ext.bambooshortPlanName = ""
+
+apply from: 'https://raw.githubusercontent.com/BuiltBrokenModding/BuiltBrokenScripts/buildScripts/scripts/both/printdeps.gradle'
+
+javadoc {
+    source = sourceSets.main.allJava
+}
+
+javadoc.dependsOn(sourceMainJava)
+javadoc.dependsOn(sourceMainScala)
+
+task javadocJar(type: Jar, dependsOn: 'javadoc') {
+     from javadoc.destinationDir
+     if (project.getProperty("bambooshortPlanName") == "BBM-Dev") classifier = "javadoc-dev"
+     else classifier = "javadoc"
+     //sets where the jars go to.
+     destinationDir = file 'output'
+     mustRunAfter "sourceMainScala"
+     mustRunAfter "sourceMainJava"
+}
+
+task deobfJar(type: Jar) {
+     dependsOn javadoc
+     from sourceSets.main.output
+     //if project name is BBM-Dev it makes the deobf jar deobf-dev if not its just deobf
+     if (project.getProperty("bambooshortPlanName") == "BBM-Dev") classifier = "deobf-dev"
+     else classifier = "deobf"
+     from javadoc.destinationDir
+     //sets where the jars go to.
+     destinationDir = file 'output'
+     mustRunAfter "sourceMainScala"
+     mustRunAfter "sourceMainJava"
+}
+
+task sourcesJar(type: Jar) {
+     from sourceSets.main.allJava
+     if (project.getProperty("bambooshortPlanName") == "BBM-Dev") classifier = "src-dev"
+     else classifier = "src"
+     //sets where the jars go to.
+     destinationDir = file 'output'
+     mustRunAfter "sourceMainScala"
+     mustRunAfter "sourceMainJava"
+}
+
+//copies the build.properties to the output dir for maven publishing.
+task copyBuildXml(type: Copy) {
+     from 'gradle.properties'
+     into 'output'
+}
+
+def currentJvm = org.gradle.internal.jvm.Jvm.current()
+println "Current Java version = " + currentJvm
+
+import org.ajoberstar.grgit.*
+
+def gitHash = 'unknown'
+if (new File(projectDir, '.git').exists()) {
+    def repo = Grgit.open(project.file('.'))
+    gitHash = repo.log().find().abbreviatedId
+}
+
+jar {
+     dependsOn copyBuildXml, printDeps
+     //if project has the property BBM-Dev then it appends dev to indicate the dev branch
+     if (project.getProperty("bambooshortPlanName") == "BBM-Dev") classifier = "dev-universal"
+     else classifier = "universal"
+     //sets where the jars go to.
+     destinationDir = file 'output'
+     manifest.mainAttributes(
+            "Built-By": System.getProperty('user.name'),
+            "Created-By": currentJvm,
+            "Implementation-Title": archivesBaseName,
+            "Implementation-Version": project.version,
+            "Git-Hash": gitHash,
+     )
+     
+}
+
+tasks.build.dependsOn javadocJar, sourcesJar, deobfJar
