@@ -26,8 +26,10 @@ javadoc.dependsOn(sourceMainScala)
 
 task javadocJar(type: Jar, dependsOn: 'javadoc') {
      from javadoc.destinationDir
-     if (project.getProperty("bambooshortPlanName") == "BBM-Dev") classifier = "javadoc-dev"
-     else classifier = "javadoc"
+     if (project.hasProperty("dev") && project.getProperty("dev") == "true") 
+        classifier = "javadoc-dev"
+     else 
+        classifier = "javadoc"
      //sets where the jars go to.
      destinationDir = file 'output'
      mustRunAfter "sourceMainScala"
@@ -38,8 +40,10 @@ task deobfJar(type: Jar) {
      dependsOn javadoc
      from sourceSets.main.output
      //if project name is BBM-Dev it makes the deobf jar deobf-dev if not its just deobf
-     if (project.getProperty("bambooshortPlanName") == "BBM-Dev") classifier = "deobf-dev"
-     else classifier = "deobf"
+     if (project.hasProperty("dev") && project.getProperty("dev") == "true") 
+        classifier = "deobf-dev"
+     else 
+        classifier = "deobf"
      from javadoc.destinationDir
      //sets where the jars go to.
      destinationDir = file 'output'
@@ -49,8 +53,10 @@ task deobfJar(type: Jar) {
 
 task sourcesJar(type: Jar) {
      from sourceSets.main.allJava
-     if (project.getProperty("bambooshortPlanName") == "BBM-Dev") classifier = "src-dev"
-     else classifier = "src"
+     if (project.hasProperty("dev") && project.getProperty("dev") == "true") 
+     classifier = "src-dev"
+     else 
+        classifier = "src"
      //sets where the jars go to.
      destinationDir = file 'output'
      mustRunAfter "sourceMainScala"
@@ -77,8 +83,10 @@ if (new File(projectDir, '.git').exists()) {
 jar {
      dependsOn copyBuildXml, printDeps
      //if project has the property BBM-Dev then it appends dev to indicate the dev branch
-     if (project.getProperty("bambooshortPlanName") == "BBM-Dev") classifier = "dev-universal"
-     else classifier = "universal"
+     if (project.hasProperty("dev") && project.getProperty("dev") == "true") 
+        classifier = "dev-universal"
+     else  
+        classifier = "universal"
      //sets where the jars go to.
      destinationDir = file 'output'
      manifest.mainAttributes(
