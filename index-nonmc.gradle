@@ -1,4 +1,4 @@
 apply from: 'https://raw.githubusercontent.com/dsirius/Gradle-repo/master//index-both.gradle'
-apply from: 'https://raw.githubusercontent.com/dsirius/Gradle-repo/master//scripts/nonmc/maven.gradle'
+//apply from: 'https://raw.githubusercontent.com/dsirius/Gradle-repo/master//scripts/nonmc/maven.gradle'
 //apply from: 'https://raw.githubusercontent.com/dsirius/Gradle-repo/master//scripts/nonmc/version.gradle'
 apply from: 'https://raw.githubusercontent.com/dsirius/Gradle-repo/master//scripts/nonmc/repos.gradle'
