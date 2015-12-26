@@ -96,7 +96,8 @@ jar {
             "Implementation-Version": project.version,
             "Git-Hash": gitHash,
             if (project.hasProperty("at")) {
-             "FMLAT": "$at" }
+             "FMLAT": "$at" 
+             }
      )
      
 }
