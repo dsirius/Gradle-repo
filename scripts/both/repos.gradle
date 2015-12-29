@@ -1,5 +1,6 @@
 repositories {
     jcenter()
+    // TODO why are all these repos mentioned here, and not mod specific?
     maven {
         name "Mobius Repo"
         url "http://mobiusstrip.eu/maven"

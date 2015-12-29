@@ -1,5 +1,6 @@
 dependencies 
 {
+    // TODO let users implement this
     compile 'junit:junit:4.11'
     compile "mcp.mobius.waila:Waila:1.5.11-RC1_1.7.10:dev"
     compile "li.cil.oc:OpenComputers:MC1.7.10-1.4.0.+:dev"

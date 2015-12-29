@@ -1,8 +1,7 @@
 apply plugin: 'maven-publish'
 publishing {
     publications {
-        mavenJava(MavenPublication)
-        {
+        mavenJava(MavenPublication) {
             artifact jar
             artifact deobfJar
             artifact("output/gradle.properties") {
@@ -10,24 +9,24 @@ publishing {
                 extension "properties"
             }
             if (project.hasProperty("bambooBuildNumber"))
-            artifact ("changelog.xml") {
-                classifier "changelog"
-                extension "xml"
-            }
+                artifact ("changelog.xml") {
+                    classifier "changelog"
+                    extension "xml"
+                }
         }
         myPublication(MavenPublication) {
-      pom.withXml {
-        from components.java
-        asNode().appendNode('description', 'Created on ' + getDate())
-        def deps = configurations.compile.allDependencies
-        def dep_node = asNode().appendNode('dependencies')
-      }
+            pom.withXml {
+                from components.java
+                    asNode().appendNode('description', 'Created on ' + getDate())
+                    def deps = configurations.compile.allDependencies
+                    def dep_node = asNode().appendNode('dependencies')
+            }
+        }
     }
-  }
 
     repositories {
         maven {
-        //checks for a the local property as a gradle argument and if exists outputs to a local dir.
+            //checks for a the local property as a gradle argument and if exists outputs to a local dir.
             if (project.hasProperty("local") && project.getProperty("local") == "true")
                 url "file:" + projectDir.path + "/build/maven"
             else

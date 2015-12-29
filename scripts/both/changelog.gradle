@@ -3,7 +3,7 @@
  */
 task("createChangelog").doLast {
     //defines the bambo url
-    def bambooURL = "http://maven.dmodoomsirius.me:8085/"
+    def bambooURL = "http://maven.dmodoomsirius.me:8085/" // TODO put into properties config
 
     /**
      * Create a new file
@@ -15,6 +15,7 @@ task("createChangelog").doLast {
      * Grab the build first, parse the XML to find the changelog XML URL
      */
      //reads the bamboo rest api with the project arguments.
+     // TODO expand to more systems than bamboo, or make sure it handles mods which dont use bamboo
     def changesXML = new XmlSlurper().parse(bambooURL + "rest/api/latest/result/" + project.bambooPlanKey + "/" + project.bambooBuildNumber + "?expand=changes.change")
     def changes = changesXML.changes
 

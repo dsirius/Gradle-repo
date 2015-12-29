@@ -12,16 +12,16 @@ publishing {
                 extension "properties"
             }
 			if (project.hasProperty("minecraft"))
-            artifact ("CompiledWith.txt") {
-                classifier "CompiledWith"
-                extension "txt"
-            }
+                artifact ("CompiledWith.txt") {
+                    classifier "CompiledWith"
+                    extension "txt"
+                }
             if (project.hasProperty("bambooBuildNumber"))
-            if (project.hasProperty("changelog") && project.getProperty("changelog") == "true")
-            artifact ("$changeLogfile") {
-                classifier "changelog"
-                extension "xml"
-            }
+                if (project.hasProperty("changelog") && project.getProperty("changelog") == "true")
+                    artifact ("$changeLogfile") {
+                        classifier "changelog"
+                        extension "xml"
+                    }
         }
         myPublication(MavenPublication) {
             from components.java
@@ -33,7 +33,7 @@ publishing {
 
     repositories {
         maven {
-        //checks for a the local property as a gradle argument and if exists outputs to a local dir.
+            //checks for a the local property as a gradle argument and if exists outputs to a local dir.
             if (project.hasProperty("local") && project.getProperty("local") == "true")
                 url "file:" + projectDir.path + "/build/maven"
             else if (project.hasProperty("nigix") && project.getProperty("nigix") == "true")

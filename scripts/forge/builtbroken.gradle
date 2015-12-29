@@ -22,6 +22,7 @@ apply plugin: 'scala'
 apply plugin: 'forge'
 
 minecraft {
+    // TODO use a properties file
     version = "1.7.10-10.13.3.1428-1.7.10"
     runDir = "run"
     replace "@MAJOR@", version_major
@@ -37,8 +38,6 @@ minecraft {
 }
 
 println "Current Minecraft version = " + minecraft.apiVersion
-
-
 
 task printDependencies {
     //dumpes what the project was compiled with into a text file.

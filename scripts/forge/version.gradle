@@ -7,6 +7,7 @@ else
     version += getDate()
 println "version = "+ version
 
+// TODO get date is defined in multiple scripts
 def getDate() {
     def date = new Date()
     def formattedDate = date.format('yyyyMMddHHmmss')
