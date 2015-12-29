@@ -22,8 +22,7 @@ apply plugin: 'scala'
 apply plugin: 'forge'
 
 minecraft {
-    // TODO use a properties file
-    version = "1.7.10-10.13.3.1428-1.7.10"
+    version = "${minecraft_version}-${forge_version}"
     runDir = "run"
     replace "@MAJOR@", version_major
     replace "@MINOR@", version_minor
