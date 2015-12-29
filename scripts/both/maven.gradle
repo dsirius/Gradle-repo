@@ -17,7 +17,8 @@ publishing {
                 extension "txt"
             }
             if (project.hasProperty("bambooBuildNumber"))
-            artifact ("changelog.xml") {
+            if (project.hasProperty("changelog") && project.getProperty("changelog") == "true")
+            artifact ("$changeLogfile") {
                 classifier "changelog"
                 extension "xml"
             }
