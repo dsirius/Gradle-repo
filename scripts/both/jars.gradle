@@ -12,9 +12,6 @@ buildscript {
     }
 }
 
-if (!project.hasProperty("bambooshortPlanName"))
-    ext.bambooshortPlanName = ""
-
 apply from: 'https://raw.githubusercontent.com/BuiltBrokenModding/BuiltBrokenScripts/buildScripts/scripts/both/printdeps.gradle'
 
 javadoc {
