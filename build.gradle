@@ -17,4 +17,4 @@ buildscript {
     }
 }
 
-apply from: 'https://raw.githubusercontent.com/dsirius/Gradle-repo/master/index.gradle'
+apply from: 'https://raw.githubusercontent.com/dsirius/Gradle-repo/master/index/index.gradle'
