@@ -1,4 +1,4 @@
-if (project.getProperty("bambooshortPlanName") == "BBM-Dev") { // TODO BBM-Dev
+if (project.hasProperty("dev") && project.getProperty("dev") == "true") { // TODO BBM-Dev
     group = "dev.${org}.${groupid}"
     archivesBaseName = "${archivebase}"
 } else {

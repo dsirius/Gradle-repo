@@ -12,9 +12,6 @@ buildscript {
     }
 }
 
-if (!project.hasProperty("bambooshortPlanName"))
-    ext.bambooshortPlanName = ""
-
 apply from: 'https://raw.githubusercontent.com/BuiltBrokenModding/BuiltBrokenScripts/buildScripts/scripts/both/printdeps.gradle'
 
 javadoc {
@@ -37,20 +34,17 @@ task javadocJar(type: Jar, dependsOn: 'javadoc') {
 }
 
 task deobfJar(type: Jar) {
-     dependsOn javadoc
-     from sourceSets.main.output
-     // TODO move this check into something BBM-Dev specific (these scripts should not cater to any one mod/development environment)
-     //if project name is BBM-Dev it makes the deobf jar deobf-dev if not its just deobf
-     if (project.hasProperty("dev") && project.getProperty("dev") == "true") 
-        classifier = "deobf-dev"
-     else 
-        classifier = "deobf"
-    // END TODO
-     from javadoc.destinationDir
-     //sets where the jars go to.
-     destinationDir = file 'output'
-     mustRunAfter "sourceMainScala"
-     mustRunAfter "sourceMainJava"
+    dependsOn javadoc
+    from sourceSets.main.output
+    if (project.hasProperty("dev") && project.getProperty("dev") == "true") 
+       classifier = "deobf-dev"
+    else 
+       classifier = "deobf"
+    from javadoc.destinationDir
+    //sets where the jars go to.
+    destinationDir = file 'output'
+    mustRunAfter "sourceMainScala"
+    mustRunAfter "sourceMainJava"
 }
 
 task sourcesJar(type: Jar) {
