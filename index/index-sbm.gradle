@@ -1,5 +1,5 @@
 apply from: 'https://raw.githubusercontent.com/dsirius/Gradle-repo/master//scripts/forge/builtbroken.gradle'
-apply from: 'https://raw.githubusercontent.com/dsirius/Gradle-repo/master//index-both.gradle'
+apply from: 'https://raw.githubusercontent.com/dsirius/Gradle-repo/master/index/index-both.gradle'
 apply from: 'https://raw.githubusercontent.com/dsirius/Gradle-repo/master//processResources.gradle'
 apply from: 'https://raw.githubusercontent.com/dsirius/Gradle-repo/master//scripts/forge/sbm/deps-sbm.gradle'
 apply from: 'https://raw.githubusercontent.com/dsirius/Gradle-repo/master//scripts/forge/maven.gradle'
