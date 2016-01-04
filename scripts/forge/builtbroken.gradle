@@ -29,7 +29,7 @@ minecraft {
     replace "@MINOR@", version_minor
     replace "@REVIS@", version_revis
     replace "@BUILD@", project.getBuildNumber
-
+}
 println "Current Minecraft version = " + minecraft.apiVersion
 
 
