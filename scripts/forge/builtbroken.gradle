@@ -28,7 +28,7 @@ minecraft {
     replace "@MAJOR@", version_major
     replace "@MINOR@", version_minor
     replace "@REVIS@", version_revis
-    replace "@BUILD@", ext.getBuildNumber.call()
+    replace "@BUILD@", projectgetBuildNumber
 }
 println "Current Minecraft version = " + minecraft.apiVersion
 
