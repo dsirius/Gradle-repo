@@ -28,11 +28,10 @@ minecraft {
     replace "@MAJOR@", version_major
     replace "@MINOR@", version_minor
     replace "@REVIS@", version_revis
-    replace "@BUILD@", getBuildNumber
+    replace "@BUILD@", project.getBuildNumber()
 }
+
 println "Current Minecraft version = " + minecraft.apiVersion
-
-
 
 def getDate() {
     def date = new Date()
