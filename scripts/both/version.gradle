@@ -8,7 +8,7 @@ else
     )
 
 //Adds variable for getting build numbers       
-def getBuildNumber() {
+ext.getBuildNumber = {
     // TODO make this an implementable function?
     if (System.getenv("BUILD_NUMBER") != null)
     {
