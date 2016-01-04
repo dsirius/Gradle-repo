@@ -30,7 +30,7 @@ minecraft {
     replace "@REVIS@", version_revis
     replace "@BUILD@", project.getBuildNumber
 }
-
+ 
 println "Current Minecraft version = " + minecraft.apiVersion
 
 def getDate() {
