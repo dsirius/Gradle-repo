@@ -4,6 +4,6 @@ task makePretty(type: Delete) {
 }
 
 //makes clean nuke the output dir.
-clean{
+clean {
    dependsOn makePretty
 }
