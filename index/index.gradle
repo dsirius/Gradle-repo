@@ -2,5 +2,5 @@
 apply from: 'https://raw.githubusercontent.com/dsirius/Gradle-repo/1.8.9/scripts/both/getbuildnumber.gradle', to: project
 apply from: 'https://raw.githubusercontent.com/dsirius/Gradle-repo/1.8.9//scripts/forge/builtbroken.gradle'
 apply from: 'https://raw.githubusercontent.com/dsirius/Gradle-repo/1.8.9/index/index-both.gradle'
-apply from: 'https://raw.githubusercontent.com/dsirius/Gradle-repo/1.8.9//scripts/forge/forgeVersioning.gradle'
+//apply from: 'https://raw.githubusercontent.com/dsirius/Gradle-repo/1.8.9//scripts/forge/forgeVersioning.gradle'
 apply from: 'https://raw.githubusercontent.com/dsirius/Gradle-repo/1.8.9//scripts/forge/processResources.gradle'
