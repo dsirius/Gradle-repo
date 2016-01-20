@@ -19,6 +19,7 @@ apply plugin: 'net.minecraftforge.gradle.forge'
 minecraft {
     version = "${minecraft_version}-${forge_version}"
     runDir = "run"
+    mappings = "$mappings_version"
 
     replace "@MAJOR@", version_major
     replace "@MINOR@", version_minor
