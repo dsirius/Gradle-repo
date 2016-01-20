@@ -27,4 +27,4 @@ minecraft {
     replace "@BUILD@", project.getBuildNumber()
 }
  
-println "Current Minecraft version = " + minecraft.Version + "-" + forge.Version
+println "Current Minecraft version = " + minecraft.version + "-" + forge.version
