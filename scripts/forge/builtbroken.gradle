@@ -16,6 +16,9 @@ apply plugin: 'scala'
 //applies the forge plugin
 apply plugin: 'net.minecraftforge.gradle.forge'
 
+println "Current Minecraft version = " + minecraft.version + "-" + minecraft.forgeVersion
+println "current mappings are set to" + $mappings_version
+
 minecraft {
     version = "${minecraft_version}-${forge_version}"
     runDir = "run"
