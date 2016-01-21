@@ -28,4 +28,4 @@ minecraft {
 }
 
 println "Current Minecraft version = " + minecraft.version + "-" + minecraft.forgeVersion
-println "current mappings are set to" + "$mappings_version"
+println "current mappings are set to " + "$mappings_version"
