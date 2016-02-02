@@ -2,6 +2,7 @@ apply from: 'https://raw.githubusercontent.com/dsirius/Gradle-repo/1.8.9//script
 apply from: 'https://raw.githubusercontent.com/dsirius/Gradle-repo/1.8.9//scripts/both/changelog.gradle'
 apply from: 'https://raw.githubusercontent.com/dsirius/Gradle-repo/1.8.9//scripts/both/version.gradle', to: project
 apply from: 'https://raw.githubusercontent.com/dsirius/Gradle-repo/1.8.9//scripts/both/jars.gradle'
+apply from: 'https://raw.githubusercontent.com/dsirius/Gradle-repo/1.8.9/scripts/both/printdeps.gradle'
 apply from: 'https://raw.githubusercontent.com/dsirius/Gradle-repo/1.8.9//scripts/both/maven.gradle'
 apply from: 'https://raw.githubusercontent.com/dsirius/Gradle-repo/1.8.9//scripts/both/archive.gradle'
 apply from: 'https://raw.githubusercontent.com/dsirius/Gradle-repo/1.8.9//scripts/both/repos.gradle'
