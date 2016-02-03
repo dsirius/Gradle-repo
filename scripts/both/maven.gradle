@@ -36,8 +36,13 @@ publishing {
             //checks for a the local property as a gradle argument and if exists outputs to a local dir.
             if (project.hasProperty("local") && project.getProperty("local") == "true")
                 url "file:" + projectDir.path + "/build/maven"
+            //Posts the artifacts to default nigix.
             else if (project.hasProperty("nigix") && project.getProperty("nigix") == "true")
                 url "file:///usr/share/nginx/html/maven"
+            //Allows for custom maven url.
+            else if (project.hasProperty("custom") && project.getProperty("custom") == "true")
+                url "file://" + project.customMaven
+            //Posts to default Apache.
             else
                 url "file:///var/www/maven"
         }
