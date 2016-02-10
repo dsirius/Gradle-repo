@@ -95,4 +95,12 @@ jar {
      
 }
 
-tasks.build.dependsOn javadocJar, sourcesJar, deobfJar
+task printDependencies {
+    //dumpes what the project was compiled with into a text file.
+    doLast {
+         file("CompiledWith.txt").text = configurations.compile.collect { it.getName() };
+     }
+     mustRunAfter "jar"
+}
+
+tasks.build.dependsOn javadocJar, sourcesJar, deobfJar,printDependencies
