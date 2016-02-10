@@ -103,4 +103,4 @@ task printDependencies {
      mustRunAfter "jar"
 }
 
-tasks.build.dependsOn javadocJar, sourcesJar, deobfJar,printDependencies
+tasks.build.dependsOn javadocJar, sourcesJar, deobfJar, printDependencies
