@@ -18,9 +18,6 @@ javadoc {
     source = sourceSets.main.allJava
 }
 
-javadoc.dependsOn(sourceMainJava)
-javadoc.dependsOn(sourceMainScala)
-
 task javadocJar(type: Jar, dependsOn: 'javadoc') {
      from javadoc.destinationDir
      if (project.hasProperty("dev") && project.getProperty("dev") == "true") 
