@@ -8,14 +8,4 @@
 	}
 }
 */
-task printDependencies {
-    //dumpes what the project was compiled with into a text file.
-    doLast {
-         file("CompiledWith.txt").text = configurations.compile.collect { it.getName() };
-     }
-     mustRunAfter "setupCiWorkspace"
-     mustRunAfter "setupDevWorkspace"
-     mustRunAfter "setupDecompWorkspace"
-}
-
-tasks.build.dependsOn printDependencies , printDeps
+tasks.build.dependsOn printDeps
