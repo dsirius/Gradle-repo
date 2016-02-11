@@ -12,8 +12,6 @@ buildscript {
     }
 }
 
-apply from: 'https://raw.githubusercontent.com/BuiltBrokenModding/BuiltBrokenScripts/buildScripts/scripts/both/printdeps.gradle'
-
 javadoc {
     source = sourceSets.main.allJava
 }
