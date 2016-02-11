@@ -11,7 +11,7 @@ buildscript {
         classpath 'org.ajoberstar:grgit:1.4.1'
     }
 }
-apply plugin: 'scala'
+
 apply from: 'https://raw.githubusercontent.com/BuiltBrokenModding/BuiltBrokenScripts/buildScripts/scripts/both/printdeps.gradle'
 
 javadoc {
@@ -26,8 +26,7 @@ task javadocJar(type: Jar, dependsOn: 'javadoc') {
         classifier = "javadoc"
      //sets where the jars go to.
      destinationDir = file 'output'
-     mustRunAfter "sourceMainScala"
-     mustRunAfter "sourceMainJava"
+     mustRunAfter "jar"
 }
 
 task deobfJar(type: Jar) {
@@ -40,8 +39,7 @@ task deobfJar(type: Jar) {
     from javadoc.destinationDir
     //sets where the jars go to.
     destinationDir = file 'output'
-    mustRunAfter "sourceMainScala"
-    mustRunAfter "sourceMainJava"
+    mustRunAfter "jar"
 }
 
 task sourcesJar(type: Jar) {
@@ -52,8 +50,7 @@ task sourcesJar(type: Jar) {
         classifier = "src"
      //sets where the jars go to.
      destinationDir = file 'output'
-     mustRunAfter "sourceMainScala"
-     mustRunAfter "sourceMainJava"
+     mustRunAfter "jar"
 }
 
 //copies the build.properties to the output dir for maven publishing.
@@ -92,4 +89,12 @@ jar {
      
 }
 
-tasks.build.dependsOn javadocJar, sourcesJar, deobfJar
+task printDependencies {
+    //dumpes what the project was compiled with into a text file.
+    doLast {
+         file("CompiledWith.txt").text = configurations.compile.collect { it.getName() };
+     }
+     mustRunAfter "jar"
+}
+
+tasks.build.dependsOn javadocJar, sourcesJar, deobfJar, printDependencies
