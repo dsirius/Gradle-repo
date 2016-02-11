@@ -11,7 +11,7 @@ buildscript {
         classpath 'org.ajoberstar:grgit:1.4.1'
     }
 }
-
+apply plugin: 'scala'
 apply from: 'https://raw.githubusercontent.com/BuiltBrokenModding/BuiltBrokenScripts/buildScripts/scripts/both/printdeps.gradle'
 
 javadoc {
