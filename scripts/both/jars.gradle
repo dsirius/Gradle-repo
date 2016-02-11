@@ -69,7 +69,7 @@ if (new File(projectDir, '.git').exists()) {
 }
 
 jar {
-     dependsOn copyBuildXml, printDeps
+     dependsOn copyBuildXml
      //if project has the property BBM-Dev then it appends dev to indicate the dev branch
      if (project.hasProperty("dev") && project.getProperty("dev") == "true") 
         classifier = "dev-universal"
