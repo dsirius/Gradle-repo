@@ -1,4 +1,4 @@
-//nukes the output dir
+//nukes the output dir of where the jars are output to.
 task makePretty(type: Delete) {
    delete 'output'
 }
