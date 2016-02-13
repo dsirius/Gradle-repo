@@ -1,5 +1,5 @@
 apply from: 'https://raw.githubusercontent.com/dsirius/Gradle-repo/master//scripts/both/clean.gradle'
-apply from: 'https://raw.githubusercontent.com/dsirius/Gradle-repo/master//scripts/both/changelog.gradle'
+apply from: 'https://raw.githubusercontent.com/dsirius/Gradle-repo/master//scripts/both/bambooChangelog.gradle'
 apply from: 'https://raw.githubusercontent.com/dsirius/Gradle-repo/master//scripts/both/version.gradle', to: project
 apply from: 'https://raw.githubusercontent.com/dsirius/Gradle-repo/master//scripts/both/jars.gradle'
 apply from: 'https://raw.githubusercontent.com/dsirius/Gradle-repo/master//scripts/both/maven.gradle'

@@ -1,7 +1,7 @@
 /**
  * Generates a Bamboo XML changelog via the REST API.
  */
-task("createChangelog").doLast {
+task("createBambooChangelog").doLast {
     //defines the bambo url
     def bambooURL = "http://build.endermedia.com/" // TODO put into properties config
 
