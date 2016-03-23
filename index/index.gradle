@@ -1,6 +1,6 @@
 //This is all the build scripts we use in the submodule
-apply from: 'https:/raw.githubusercontent.com/dsirius/Gradle-repo/1.9/scripts/both/getbuildnumber.gradle', to: project
-apply from: 'https:/raw.githubusercontent.com/dsirius/Gradle-repo/1.9/scripts/forge/builtbroken.gradle'
-apply from: 'https:/raw.githubusercontent.com/dsirius/Gradle-repo/1.9/index/index-both.gradle'
-apply from: 'https:/raw.githubusercontent.com/dsirius/Gradle-repo/1.9/scripts/forge/forgeVersioning.gradle'
-apply from: 'https:/raw.githubusercontent.com/dsirius/Gradle-repo/1.9/scripts/forge/processResources.gradle'
+apply from: 'https:///raw.githubusercontent.com/dsirius/Gradle-repo/1.9/scripts/both/getbuildnumber.gradle', to: project
+apply from: 'https:///raw.githubusercontent.com/dsirius/Gradle-repo/1.9/scripts/forge/builtbroken.gradle'
+apply from: 'https:///raw.githubusercontent.com/dsirius/Gradle-repo/1.9/index/index-both.gradle'
+apply from: 'https:///raw.githubusercontent.com/dsirius/Gradle-repo/1.9/scripts/forge/forgeVersioning.gradle'
+apply from: 'https:///raw.githubusercontent.com/dsirius/Gradle-repo/1.9/scripts/forge/processResources.gradle'
